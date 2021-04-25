@@ -11,4 +11,8 @@ class User {
         this.hobby = hobby
     }
 
+    constructor()
+    {
+
+    }
 }

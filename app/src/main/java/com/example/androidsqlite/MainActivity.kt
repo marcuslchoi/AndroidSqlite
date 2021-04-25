@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("hi","all fields not filled");
                 Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT)
             }
-
         }
     }
 }
