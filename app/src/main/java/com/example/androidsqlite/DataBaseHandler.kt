@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import android.widget.Toast
 
 val DATABASE_NAME = "MyDB"
@@ -59,8 +60,11 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                 user.name = result.getString(result.getColumnIndex(COL_NAME))
                 user.hobby = result.getString(result.getColumnIndex(COL_HOBBY))
                 list.add(user)
+                Log.d("user name "+user.name," hobby "+user.hobby)
             } while (result.moveToNext())
         }
+        result.close()
+        db.close()
         return list
     }
 }

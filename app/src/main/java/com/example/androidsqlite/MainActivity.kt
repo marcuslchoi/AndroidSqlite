@@ -25,11 +25,12 @@ class MainActivity : AppCompatActivity() {
             //val rand = Random.nextInt(10)
             //txtView.text = "Random num: "+rand.toString()+" You said: "+editText.text
             //txtView.text += editText.text
+            var db = DataBaseHandler(context)
             if(editTextName.text.toString().length > 0 &&
                     editTextHobby.text.toString().length > 0)
             {
                 var user = User(editTextName.text.toString(), editTextHobby.text.toString())
-                var db = DataBaseHandler(context)
+
                 db.insertData(user)
                 Log.d("hi","user inserted");
             }
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("hi","all fields not filled");
                 Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT)
             }
+            db.readData()
         }
     }
 }
